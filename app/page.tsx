@@ -1,12 +1,18 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import Button from "@mui/material/Button";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <Image
           className="dark:invert"
-          src="/next.svg"
+          src={"https://deviceinfo.blob.core.windows.net/test-image/next.svg?sp=r&st=2026-02-07T12:54:46Z&se=2026-02-07T21:09:46Z&spr=https&sv=2024-11-04&sr=b&sig=nktaYmcf8cNKjMtPw3HKZBLNrDBHKpLnutdRQbv%2BUEs%3D"}
           alt="Next.js logo"
           width={100}
           height={20}
@@ -43,7 +49,7 @@ export default function Home() {
           >
             <Image
               className="dark:invert"
-              src="/vercel.svg"
+              src="https://deviceinfo.blob.core.windows.net/test-image/vercel.svg?sp=r&st=2026-02-07T12:49:05Z&se=2026-02-07T21:04:05Z&spr=https&sv=2024-11-04&sr=b&sig=cJWHOhJ7G8eYvaimU0TIlK%2Bz3Fg%2FGubLAgY1MIizH4E%3D"
               alt="Vercel logomark"
               width={16}
               height={16}
@@ -58,6 +64,20 @@ export default function Home() {
           >
             Documentation
           </a>
+          <Button
+            variant="contained"
+            size="large"
+            onClick={() => router.push("/pages/login")}
+          >
+            ログインページへ
+          </Button>
+          <Button
+            variant="contained"
+            size="large"
+            onClick={() => router.push("/counter")}
+          >
+            カウンターページへ
+          </Button>
         </div>
       </main>
     </div>
